@@ -1,16 +1,11 @@
 /***************************************************************************
-
-
-
   Written by Abhijeet Kadam
 
   BMP280 Sensor connected to
    SDA - A4
    SCL - A5
-
   Buzzer module connected to
   I/O - 13
-
  ***************************************************************************/
 
 
@@ -27,13 +22,10 @@
 #define BMP_CS   (10)
 
 Adafruit_BMP280 bmp; // I2C
-//Adafruit_BMP280 bmp(BMP_CS); // hardware SPI
-//Adafruit_BMP280 bmp(BMP_CS, BMP_MOSI, BMP_MISO,  BMP_SCK);
 
 float temp;
 void setup() {
   Serial.begin(9600);
-  //Serial.println(F("BMP280 test"));
 
   pinMode(13, OUTPUT);
 
@@ -56,7 +48,7 @@ void loop() {
   Serial.print((temp));
   Serial.println(" *C");
 
-  if (temp > 32)
+  if (temp > 35)
   {
     digitalWrite(13, HIGH);
     delay(500);
